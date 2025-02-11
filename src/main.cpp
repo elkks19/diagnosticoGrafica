@@ -31,7 +31,7 @@ using namespace std;
 bool isPrimo(int n, list<int>* primos) {
 	if (n == 1) return false;
 	if (n == 2) return true;
-	if (n >= 10000000) throw "La criba no soporta números mayores a 10^7";
+	if (n >= 10000000) throw "La criba no soporta números mayores a 10 millones";
 
     for (auto i = primos->cbegin(); i != primos->cend(); i++) {
 		if (n % *i == 0) return false;
