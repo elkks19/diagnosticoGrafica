@@ -27,18 +27,19 @@
 #include <iostream>
 #include <list>
 
-bool isPrimo(int n) {
+using namespace std;
+bool isPrimo(int n, list<int>* primos) {
 	if (n == 1) return false;
 	if (n == 2) return true;
-	if (n % 2 == 0) return false;
-	for (int i = 3; i <= sqrt(n); i += 2) {
-		if (n % i == 0) return false;
-	}
+	if (n >= 10000000) throw "La criba no soporta números mayores a 10^7";
+
+    for (auto i = primos->cbegin(); i != primos->cend(); i++) {
+		if (n % *i == 0) return false;
+    }
 
 	return true;
 }
 
-using namespace std;
 int main (int argc, char *argv[]) {
 	int cantPrimos;
 	cout << "Ingrese la cantidad de números primos a mostrar: ";
@@ -47,7 +48,7 @@ int main (int argc, char *argv[]) {
 	list<int> primos;
 
 	for (int i = 1, j = 0; j < cantPrimos; i++) {
-		if (isPrimo(i)) {
+		if (isPrimo(i, &primos)) {
 			primos.push_back(i);
 			j++;
 		}
