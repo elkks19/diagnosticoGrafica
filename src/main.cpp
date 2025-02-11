@@ -27,8 +27,7 @@
 #include <iostream>
 #include <list>
 
-using namespace std;
-bool isPrimo(int n, list<int>* primos) {
+bool isPrimo(int n) {
 	if (n == 1) return false;
 	if (n == 2) return true;
 	if (n % 2 == 0) return false;
@@ -39,6 +38,7 @@ bool isPrimo(int n, list<int>* primos) {
 	return true;
 }
 
+using namespace std;
 int main (int argc, char *argv[]) {
 	int cantPrimos;
 	cout << "Ingrese la cantidad de números primos a mostrar: ";
